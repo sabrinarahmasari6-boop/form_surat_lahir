@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Surat Keterangan Kelahiran</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<div class="container">
+
+    <div id="formPage">
+        <form id="birthForm" class="form">
+
+            <table class="header">
+                <tr>
+
+                    <td class="logo-box">
+                        <img src="Logo.png" class="logo" alt="Logo RSI">
+                    </td>
+
+                    <td class="rs-box">
+                        <b>RSI. "SITI HAJAR"</b><br>
+                        Jl. R. Patoh 70 Telp. (031) 8921233<br>
+                        <b>SIDOARJO</b>
+                    </td>
+
+                    <td class="frm-box">
+                        FRM.14
+                    </td>
+
+                </tr>
+            </table>
+
+            <div class="judul">
+                <h2>SURAT KETERANGAN KELAHIRAN</h2>
+
+                <div class="nomor">
+                    No. Kel. <input type="text" name="no_kel" class="fill small" placeholder="No_Kel"> / VK <input type="text" name="vk" class="fill small" placeholder="VK"> / RS / <input type="text" name="rs" class="fill small" placeholder="RS"> / <input type="text" name="tahun" class="fill small" placeholder="Tahun">
+                </div>
+            </div>
+
+            <div class="isi">
+                <div class="form-row">
+                    <span class="label2">Nama</span>
+                    : <input type="text" name="nama_ibu" class="fill nama-panjang" placeholder="Nama Ibu">
+                    <span class="reg">
+                        <b>Reg</b> : <input type="text" name="reg" class="fill small" placeholder="Reg">
+                    </span>
+                </div>
+
+                <div class="form-row">
+                    <span class="label2">Umur</span>
+                    : <input type="text" name="umur" class="fill small" placeholder="Umur"> tahun
+                </div>
+
+                <div class="form-row">
+                    <span class="label2">Agama</span>
+                    :
+                    <select name="agama" class="fill small">
+                        <option value="">Pilih Agama</option>
+                        <option>Islam</option>
+                        <option>Kristen</option>
+                        <option>Katolik</option>
+                        <option>Hindu</option>
+                        <option>Buddha</option>
+                        <option>Konghucu</option>
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <span class="label2">Nama Suami</span>
+                    : <input type="text" name="nama_suami" class="fill nama-panjang" placeholder="Nama Ayah">
+                </div>
+
+                <div class="form-row full-width">
+                    <span class="label2">Alamat</span>
+                    : <textarea name="alamat" class="fill textarea" placeholder="Alamat"></textarea>
+                </div>
+
+                <div class="form-row">
+                    <span class="label2">Pada Tanggal</span>
+                    : <input type="date" name="tanggal_lahir" class="fill small date-input">
+                    <span class="jam">
+                        <b>Pukul</b> : <input type="time" name="jam_lahir" class="fill small time-input"> WIB
+                    </span>
+                </div>
+
+                <div class="form-row">
+                    <span class="label2">Dibawah Pertolongan</span>
+                    :
+                    <select name="dokter_bidan" class="fill dokter-select">
+                        <option value="">Pilih Dokter</option>
+                        <option>dr. Ika Maret Tania Sp., OG</option>
+                        <option>dr. Raz Fides Umi R. M.Kes., Sp.OG, Subsp. Obginsos (K)</option>
+                        <option>dr. Mochammad Rizalul Rosyiadi Sp.OG, M. Ked. Klin</option>
+                        <option>Dr. dr. Rachmad Saleh Sp. OG. Subsp. Obginsos (K), S.H., M.H.Kes</option>
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <span class="label2">Telah Melahirkan Anak</span>
+                    : <select name="jenis_kelamin" class="fill small">
+                        <option value="">Pilih</option>
+                        <option value="Laki-laki">Laki-laki</option>
+                        <option value="Perempuan">Perempuan</option>
+                    </select>
+                    bernama <input type="text" name="nama_bayi" class="fill nama-panjang" placeholder="Nama Anak">
+                </div>
+
+                <div class="form-row">
+                    <span class="label2">Berat Badan</span>
+                    : <input type="number" name="berat_badan" class="fill small" placeholder="gram"> gram
+                </div>
+
+                <div class="form-row">
+                    <span class="label2">Panjang</span>
+                    : <input type="number" name="panjang" class="fill small" placeholder="cm"> cm
+                    <span class="lingkar">
+                        <b>Lingkar Dada</b> : <input type="number" name="lingkar_dada" class="fill small" placeholder="cm"> cm
+                    </span>
+                    <span class="lingkar">
+                        <b>Lingkar Kepala</b> : <input type="number" name="lingkar_kepala" class="fill small" placeholder="cm"> cm
+                    </span>
+                </div>
+            </div>
+
+            <div class="footer">
+                <div class="footer-text">
+                    <span>Sidoarjo,</span>
+                    <input type="date" name="tanggal_surat" class="fill small date-input">
+                </div>
+                <div class="ttd">
+                    Dokter
+                </div>
+                <button type="submit" class="btn-submit">
+                    Cetak Surat
+                </button>
+            </div>
+
+        </form>
+    </div>
+
+</div>
+
+<script>
+    const STORAGE_KEY = 'kelahiranData';
+    const birthForm = document.getElementById('birthForm');
+
+    function getSavedData() {
+        return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+    }
+
+    function saveData(list) {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
+    }
+
+    function formatDate(value) {
+        if (!value) return '';
+        const date = new Date(value);
+        return date.toLocaleDateString('id-ID', { day: '2-digit', month: '2-digit', year: 'numeric' });
+    }
+
+    function collectFormData() {
+        const formData = new FormData(birthForm);
+        return {
+            no_kel: formData.get('no_kel'),
+            vk: formData.get('vk'),
+            rs: formData.get('rs'),
+            tahun: formData.get('tahun'),
+            nama_ibu: formData.get('nama_ibu'),
+            reg: formData.get('reg'),
+            umur: formData.get('umur'),
+            agama: formData.get('agama'),
+            nama_suami: formData.get('nama_suami'),
+            alamat: formData.get('alamat'),
+            tanggal_lahir: formData.get('tanggal_lahir'),
+            jam_lahir: formData.get('jam_lahir'),
+            dokter_bidan: formData.get('dokter_bidan'),
+            jenis_kelamin: formData.get('jenis_kelamin'),
+            nama_bayi: formData.get('nama_bayi'),
+            berat_badan: formData.get('berat_badan'),
+            panjang: formData.get('panjang'),
+            lingkar_dada: formData.get('lingkar_dada'),
+            lingkar_kepala: formData.get('lingkar_kepala'),
+            tanggal_surat: formData.get('tanggal_surat')
+        };
+    }
+
+        birthForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        const list = getSavedData();
+        list.push(collectFormData());
+        saveData(list);
+
+        window.print();
+    });
+
+</script>
+
+</body>
+</html>
