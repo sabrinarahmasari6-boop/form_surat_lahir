@@ -3,7 +3,7 @@
 ========================= */
 
 @page {
-    size: A4 landscape;
+    size: f4 landscape;
     margin: 10mm;
 }
 
@@ -11,7 +11,7 @@ body {
     margin: 0;
     padding: 20px;
     font-family: "Times New Roman", serif;
-    font-size: 14px;
+    font-size: 18px;
     background-color: #ffffff;
 }
 
@@ -79,6 +79,18 @@ body {
     font-weight: bold;
 }
 
+.nomor-kecil {
+    width: 90px;      /* sekitar 10 karakter */
+    min-width: 90px;
+    text-align: center;
+}
+
+.nomor-rs {
+    width: 220px;     /* cukup untuk RSI. SITI HAJAR SIDOARJO */
+    min-width: 220px;
+    text-align: center;
+}
+
 /* =========================
    ISI SURAT
 ========================= */
@@ -92,9 +104,9 @@ body {
 
 .form-row {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
 }
 
 .form-row.full-width {
@@ -112,7 +124,7 @@ body {
 }
 
 .fill.small {
-    min-width: 40px;
+    min-width: 60px;
 }
 
 .textarea {
@@ -146,6 +158,11 @@ select {
     background: #f3f3f3;
 }
 
+.ukuran-bayi {
+    font-weight: bold;
+}
+
+
 .label2 {
     display: inline-block;
     min-width: 170px;
@@ -153,11 +170,18 @@ select {
 }
 
 .reg,
-.jam,
+.jam {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    margin-left: 20px;
+}
+
 .lingkar {
     display: inline-flex;
     align-items: center;
-    gap: 4px;
+    gap: 2px;
+    margin-left: 8px;
 }
 
 /* =========================
@@ -170,21 +194,41 @@ select {
     padding-right: 100px;
 }
 
+#namaDokterCetak {
+    display: none;
+}
+
 .ttd {
     margin-top: 50px;
+}
+
+.ttd-dokter {
+    width: 650px;
+    margin-left: auto;
+    text-align: right;
+}
+
+#namaDokterCetak {
+    width: 100%;
+    display: none;
+    text-align: right;
+    word-wrap: break-word;
 }
 
 /* =========================
    PRINT
 ========================= */
 
+
+
 @media print {
+
     @page {
-        size: A4 landscape;
+        size: f4 landscape;
         margin-top: 5mm;
         margin-bottom: 5mm;
         margin-left: 25mm;
-        margin-right: 15mm;
+        margin-right: 10mm;
     }
 
     .isi {
@@ -193,20 +237,21 @@ select {
     }
 
     .footer {
-        margin-top: 50px;
+        margin-top: 30px;
         text-align: right;
-        padding-right: 120px;
+        padding-right: 100px;
     }
 
+
     .ttd {
-        margin-top: 65px;
+        margin-top: 80px;
     }
 
     html,
     body {
         width: 297mm;
         height: 210mm;
-        overflow: hidden;
+        overflow: visible;
         padding: 0;
         margin: 0;
     }
@@ -214,6 +259,16 @@ select {
     .container {
         width: 100%;
         margin: 0;
+    }
+
+     #dokter_ttd {
+        display: none;
+    }
+
+    #namaDokterCetak {
+        display: block;
+        font-weight: normal;
+        text-align: right;
     }
 
     .btn-submit {
@@ -235,4 +290,11 @@ select {
 
 .form {
     page-break-inside: avoid;
+}
+.ukuran-bayi {
+    gap: 4px;
+}
+
+.ukuran-bayi .lingkar {
+    margin-left: 5px;
 }
