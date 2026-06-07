@@ -39,7 +39,17 @@
                 <h2>SURAT KETERANGAN KELAHIRAN</h2>
 
                 <div class="nomor">
-                    No. Kel. <input type="text" name="no_kel" class="fill small" placeholder="No_Kel"> / VK <input type="text" name="vk" class="fill small" placeholder="VK"> / RS / <input type="text" name="rs" class="fill small" placeholder="RS"> / <input type="text" name="tahun" class="fill small" placeholder="Tahun">
+                    No. Kel.
+                    <input type="text" name="no_kel" class="fill nomor-kecil" placeholder="No_Kel">
+
+                    / VK
+                    <input type="text" name="vk" class="fill nomor-kecil" placeholder="VK">
+
+                    / RS /
+                    <input type="text" name="rs" class="fill nomor-rs" placeholder="RS">
+
+                    /
+                    <input type="text" name="tahun" class="fill nomor-kecil" placeholder="Tahun">
                 </div>
             </div>
 
@@ -111,20 +121,21 @@
                     bernama <input type="text" name="nama_bayi" class="fill nama-panjang" placeholder="Nama Anak">
                 </div>
 
-                <div class="form-row">
-                    <span class="label2">Berat Badan</span>
-                    : <input type="number" name="berat_badan" class="fill small" placeholder="gram"> gram
-                </div>
+               <div class="form-row ukuran-bayi">
 
-                <div class="form-row">
-                    <span class="label2">Panjang</span>
+                   <span class="label"><b>Panjang</b></span>
                     : <input type="number" name="panjang" class="fill small" placeholder="cm"> cm
+
                     <span class="lingkar">
-                        <b>Lingkar Dada</b> : <input type="number" name="lingkar_dada" class="fill small" placeholder="cm"> cm
+                        <b>Lingkar Dada</b> :
+                        <input type="number" name="lingkar_dada" class="fill small" placeholder="cm"> cm
                     </span>
+
                     <span class="lingkar">
-                        <b>Lingkar Kepala</b> : <input type="number" name="lingkar_kepala" class="fill small" placeholder="cm"> cm
+                        <b>Lingkar Kepala</b> :
+                        <input type="number" name="lingkar_kepala" class="fill small" placeholder="cm"> cm
                     </span>
+
                 </div>
             </div>
 
@@ -133,9 +144,22 @@
                     <span>Sidoarjo,</span>
                     <input type="date" name="tanggal_surat" class="fill small date-input">
                 </div>
+                <br>
+
                 <div class="ttd">
-                    Dokter
+                    <div class="ttd-dokter">
+                        <select name="dokter_ttd" id="dokter_ttd" class="fill dokter-ttd-select">
+                            <option value="">Pilih Dokter</option>
+                            <option>dr. Ika Maret Tania Sp., OG</option>
+                            <option>dr. Raz Fides Umi R. M.Kes., Sp.OG, Subsp. Obginsos (K)</option>
+                            <option>dr. Mochammad Rizalul Rosyiadi Sp.OG, M. Ked. Klin</option>
+                            <option>Dr. dr. Rachmad Saleh Sp. OG. Subsp. Obginsos (K), S.H., M.H.Kes</option>
+                        </select>
+
+                        <span id="namaDokterCetak"></span>
+                    </div>
                 </div>
+
                 <button type="submit" class="btn-submit">
                     Cetak Surat
                 </button>
@@ -190,15 +214,22 @@
         };
     }
 
-        birthForm.addEventListener('submit', (event) => {
-        event.preventDefault();
+    const dokterSelect = document.querySelector('[name="dokter_bidan"]');
+    const dokterTtd = document.getElementById("dokter_ttd");
+    const namaDokterCetak = document.getElementById("namaDokterCetak");
 
-        const list = getSavedData();
-        list.push(collectFormData());
-        saveData(list);
-
-        window.print();
+    window.addEventListener("beforeprint", () => {
+        namaDokterCetak.textContent = dokterTtd.value;
     });
+
+
+    birthForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    alert("Tombol submit terdeteksi");
+
+    window.print();
+});
 
 </script>
 
