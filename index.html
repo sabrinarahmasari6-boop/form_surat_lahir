@@ -245,12 +245,15 @@
     });
 
     // Setelah tanggal dipilih
-    umurInput.addEventListener("change", function() {
-    const age = calculateAge(this.value);
+    umurInput.addEventListener('change', () => {
 
-    umurDisplay.textContent = age;
+    if (!umurInput.value) return;
+
+    const age = calculateAge(umurInput.value);
+
+    umurDisplay.value = age;
     umurHidden.value = age;
-    });
+});
 
     function collectFormData() {
         const formData = new FormData(birthForm);
