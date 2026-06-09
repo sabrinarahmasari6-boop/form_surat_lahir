@@ -145,23 +145,18 @@ body {
     overflow: hidden;
 }
 
-.umur-container{
-    position:relative;
-    display:inline-block;
-    width:60px;
-    text-align:center;
+.umur-wrapper {
+    position: relative;
+    display: inline-block;
 }
 
-.umur-overlay{
-    position:absolute;
-    inset:0;
-    opacity:0;
-    cursor:pointer;
-}
-
-#umur_display{
-    display:inline-block;
-    width:60px;
+.umur-hidden-date {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
 }
 
 .date-input,
