@@ -42,6 +42,11 @@ body {
     height: auto;
 }
 
+.logo-qr {
+    width: 120px !important;
+    height: auto !important;
+}
+
 .rs-box {
     width: 350px;
     line-height: 1.4;
@@ -123,6 +128,10 @@ body {
     min-width: 100px;
 }
 
+.fill[readonly] {
+    cursor: default;
+}
+
 .fill.small {
     min-width: 60px;
 }
@@ -134,6 +143,25 @@ body {
     height: 40px;
     resize: none;
     overflow: hidden;
+}
+
+.umur-container{
+    position:relative;
+    display:inline-block;
+    width:60px;
+    text-align:center;
+}
+
+.umur-overlay{
+    position:absolute;
+    inset:0;
+    opacity:0;
+    cursor:pointer;
+}
+
+#umur_display{
+    display:inline-block;
+    width:60px;
 }
 
 .date-input,
