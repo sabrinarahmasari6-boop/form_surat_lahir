@@ -316,9 +316,20 @@ select {
     page-break-inside: avoid;
 }
 .ukuran-bayi {
-    gap: 4px;
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    margin-top: 5px;
 }
 
-.ukuran-bayi input {
-    min-width: 45px !important;
+.ukuran-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.ukuran-input {
+    width: 140px;
+    min-width: 140px;
+    text-align: center;
 }
