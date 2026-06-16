@@ -329,7 +329,7 @@ select {
 }
 
 .ukuran-input {
-    width: 140px;
-    min-width: 140px;
+    width: 250px;
+    min-width: 250px;
     text-align: center;
 }
