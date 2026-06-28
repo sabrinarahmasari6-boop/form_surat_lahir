@@ -301,12 +301,29 @@
         };
     }
 
+    // ==========================
+    // Sinkronisasi dokter
+    // ==========================
+    
     const dokterSelect = document.querySelector('[name="dokter_bidan"]');
     const dokterTtd = document.getElementById("dokter_ttd");
     const namaDokterCetak = document.getElementById("namaDokterCetak");
-
+    
+    // Saat dokter pertolongan dipilih,
+    // otomatis isi dokter tanda tangan.
+    dokterSelect.addEventListener("change", function () {
+    
+        dokterTtd.value = this.value;
+    
+        namaDokterCetak.textContent = this.value;
+    
+    });
+    
+    // Sebelum dicetak
     window.addEventListener("beforeprint", () => {
-        namaDokterCetak.textContent = dokterTtd.value;
+    
+        namaDokterCetak.textContent = dokterSelect.value;
+    
     });
 
 
